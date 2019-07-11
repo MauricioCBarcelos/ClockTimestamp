@@ -64,7 +64,7 @@ public class TelaPrincipal extends JFrame {
 		// TODO Auto-generated method stub
 		ControllerTimer timer = new ControllerTimer();
 		
-		
+		//s
 		textPaneClockNormal.setText(timer.timerControllerNormal());
 		
 		textPaneClockTimestamp.setText(timer.timerControllerTimestamp());
