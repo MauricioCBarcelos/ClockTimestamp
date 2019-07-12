@@ -1,14 +1,26 @@
 package zaas.ClockTimestamp.controller;
 
-public class ControllerTimer {
+import zaas.ClockTimestamp.model.bo.DateTimerFormater;
 
+public class ControllerTimer {
+	private DateTimerFormater dateTimerFormater = new DateTimerFormater();
+	
 	public String timerControllerNormal() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		
+		return dateTimerFormater.dateTimerFormater();
 	}
 
 	public String timerControllerTimestamp() {
 		// TODO Auto-generated method stub
+		return dateTimerFormater.dateTimerFormaterTimestemp();
+	}
+
+	public String formaterDateTimeController(String text) {
+		
+		
+		
 		return null;
 	}
 
