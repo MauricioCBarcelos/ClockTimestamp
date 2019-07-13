@@ -5,8 +5,6 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import zaas.ClockTimestamp.view.TelaPrincipal;
-
 public class DateTimerFormater {
 
 	private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -20,28 +18,26 @@ public class DateTimerFormater {
 	public String dateTimerFormaterTimestemp(String value) {
 		try {
 
-			if (value.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$") || value.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
-				
-				
-				switch (value.trim().length()) {
-				case 10:
-					
-					break;
+			if (value.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$")
+					|| value.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
 
-				default:
-					
+				if (value.trim().length() == 10) {
+
+					Date dataConvertida = simpleDateFormat.parse(value + " 00:00:00");
+
+					return "" + org.apache.poi.ss.usermodel.DateUtil.getExcelDate(dataConvertida);
+				} else {
+
 					Date dataConvertida = simpleDateFormat.parse(value);
 
 					return "" + org.apache.poi.ss.usermodel.DateUtil.getExcelDate(dataConvertida);
+
 				}
-				
-				
 
 			} else {
-				
-				
-				return "" + simpleDateFormat
-						.format(org.apache.poi.ss.usermodel.DateUtil.getJavaDate(Double.parseDouble(value.replaceAll(",", "."))));
+
+				return "" + simpleDateFormat.format(org.apache.poi.ss.usermodel.DateUtil
+						.getJavaDate(Double.parseDouble(value.replaceAll(",", "."))));
 			}
 
 		} catch (Exception e) {
@@ -52,7 +48,6 @@ public class DateTimerFormater {
 	}
 
 	public String dateTimerFormaterTimestemp() {
-		// TODO Auto-generated method stub
 
 		return "" + org.apache.poi.ss.usermodel.DateUtil.getExcelDate(new Date());
 

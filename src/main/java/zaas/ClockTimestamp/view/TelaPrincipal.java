@@ -1,6 +1,5 @@
 package zaas.ClockTimestamp.view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -18,8 +17,6 @@ import java.awt.Color;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Dialog.ModalExclusionType;
@@ -27,9 +24,12 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 import java.awt.Component;
-import java.awt.Window.Type;
 
 public class TelaPrincipal extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(TelaPrincipal.class);
 	private JPanel contentPane;
 	private JTextPane textPaneClockNormal;
@@ -123,7 +123,9 @@ public class TelaPrincipal extends JFrame {
 
 		JLabel lblResultado = new JLabel("Resultado:");
 		contentPane.add(lblResultado, "cell 0 3,alignx left,aligny top");
-		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPane, jPanelTitleDataHoraAtual, textPaneClockTimestamp, textPaneClockNormal, lblConvert, textPaneValueConvert, textPaneResult, lblResultado}));
+		setFocusTraversalPolicy(new FocusTraversalOnArray(
+				new Component[] { contentPane, jPanelTitleDataHoraAtual, textPaneClockTimestamp, textPaneClockNormal,
+						lblConvert, textPaneValueConvert, textPaneResult, lblResultado }));
 		timer();
 	}
 
@@ -160,14 +162,12 @@ public class TelaPrincipal extends JFrame {
 		// TODO Auto-generated method stub
 		try {
 			String result = timer.formaterDateTimeController(textPaneValueConvert.getText());
-			
+
 			textPaneResult.setText(result);
 		} catch (Exception e) {
 			logger.error("Valor nulo: " + e.getMessage(), e);
 			textPaneResult.setText("");
 		}
-
-	
 
 	}
 }
