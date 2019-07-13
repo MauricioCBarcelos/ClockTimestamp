@@ -68,11 +68,11 @@ public class TelaPrincipal extends JFrame {
 		setResizable(false);
 		setModalExclusionType(ModalExclusionType.TOOLKIT_EXCLUDE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 269, 240);
+		setBounds(100, 100, 210, 240);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[169px]", "[83px][21.00px][20px][21.00px][20px]"));
+		contentPane.setLayout(new MigLayout("", "[209.00px]", "[83px][21.00px][20px][21.00px][20px]"));
 
 		jPanelTitleDataHoraAtual = new JPanel();
 		jPanelTitleDataHoraAtual.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"),
@@ -159,7 +159,6 @@ public class TelaPrincipal extends JFrame {
 	}
 
 	private void dateTimeConverter() {
-		// TODO Auto-generated method stub
 		try {
 			String result = timer.formaterDateTimeController(textPaneValueConvert.getText());
 
