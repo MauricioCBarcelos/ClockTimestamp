@@ -27,11 +27,10 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class TelaPrincipal extends JFrame {
-
+	private static final Logger logger = Logger.getLogger(TelaPrincipal.class);
 	private JPanel contentPane;
 	private JTextPane textPaneClockNormal;
 	private JTextPane textPaneClockTimestamp;
-	private static final Logger logger = Logger.getLogger(TelaPrincipal.class);
 	private ControllerTimer timer = new ControllerTimer();
 	private JPanel jPanelTitleDataHoraAtual;
 	private JTextPane textPaneValueConvert = new JTextPane();

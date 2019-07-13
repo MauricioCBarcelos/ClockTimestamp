@@ -17,11 +17,13 @@ public class ControllerTimer {
 		return dateTimerFormater.dateTimerFormaterTimestemp();
 	}
 
-	public String formaterDateTimeController(String text) {
+	public String formaterDateTimeController(String value) {
 		
 		
 		
-		return null;
+		
+		
+		return dateTimerFormater.dateTimerFormaterTimestemp(value);
 	}
 
 }
