@@ -20,11 +20,22 @@ public class DateTimerFormater {
 	public String dateTimerFormaterTimestemp(String value) {
 		try {
 
-			if (value.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$")) {
+			if (value.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}$") || value.matches("^[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
+				
+				
+				switch (value.trim().length()) {
+				case 10:
+					
+					break;
 
-				Date dataConvertida = simpleDateFormat.parse(value);
+				default:
+					
+					Date dataConvertida = simpleDateFormat.parse(value);
 
-				return "" + org.apache.poi.ss.usermodel.DateUtil.getExcelDate(dataConvertida);
+					return "" + org.apache.poi.ss.usermodel.DateUtil.getExcelDate(dataConvertida);
+				}
+				
+				
 
 			} else {
 				

@@ -25,6 +25,9 @@ import net.miginfocom.swing.MigLayout;
 import java.awt.Dialog.ModalExclusionType;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import org.eclipse.wb.swing.FocusTraversalOnArray;
+import java.awt.Component;
+import java.awt.Window.Type;
 
 public class TelaPrincipal extends JFrame {
 	private static final Logger logger = Logger.getLogger(TelaPrincipal.class);
@@ -60,6 +63,9 @@ public class TelaPrincipal extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaPrincipal() {
+		setType(Type.POPUP);
+		setTitle("ClockTimestamp");
+		setResizable(false);
 		setModalExclusionType(ModalExclusionType.TOOLKIT_EXCLUDE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 269, 240);
@@ -117,6 +123,7 @@ public class TelaPrincipal extends JFrame {
 
 		JLabel lblResultado = new JLabel("Resultado:");
 		contentPane.add(lblResultado, "cell 0 3,alignx left,aligny top");
+		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{contentPane, jPanelTitleDataHoraAtual, textPaneClockTimestamp, textPaneClockNormal, lblConvert, textPaneValueConvert, textPaneResult, lblResultado}));
 		timer();
 	}
 
